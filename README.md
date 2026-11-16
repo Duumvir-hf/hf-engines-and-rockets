@@ -15,6 +15,9 @@ no scripting, no editor, one JSON file:
 3. Edit `Modloader/config/tuning.json`, start the game. The mod refuses to start on any version other
    than Steam 1.163.
 
+Prefer to build it yourself? `cargo build --release` and take `target/release/hf_tuning.dll`; it is
+built against `highfleet-mod-api` v4.0.0 and `patchy-rs` v0.1.0.
+
 ## Config
 
 `Modloader/config/tuning.json` — every number is taken as written (nothing is clamped):
@@ -63,7 +66,7 @@ All engines survive longer, one engine (RD-59) even longer, and the 300 mm rocke
 "rocket_burn_seconds_by_ammo": { "ITEM_AMMO_300MM": 4.0 }
 ```
 
-A short, hard-hitting rocket: high acceleration, short burn, 500 mm-class punch out of a 220 mm pod:
+A short, hard-hitting rocket (220 mm pod): more thrust, but for only 0.8 s:
 
 ```json
 "rocket_acceleration_by_ammo": { "ITEM_AMMO_220MM": 1200.0 },
@@ -83,7 +86,7 @@ A short, hard-hitting rocket: high acceleration, short burn, 500 mm-class punch 
 
 ## How it works
 
-HighFleet keeps one hardcoded `500.0f` and 82 instructions read it; the Scalar knobs retarget the
+HighFleet keeps one hardcoded `500.0f` and 82 instructions read it; the scalar knobs retarget the
 few instructions that matter to a writable copy of the value (a 4-byte displacement rewrite, the
 instruction itself is unchanged). The per-`m_oid` values cannot be a constant, so they use small
 trampolines instead: the engine hook shifts the temperature the vanilla compare sees, and the rocket
