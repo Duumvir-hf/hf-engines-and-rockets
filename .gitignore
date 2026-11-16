@@ -1,0 +1,5 @@
+# build output
+/target/
+
+# built mod binaries are published as GitHub release assets, not committed
+release/Modloader/mods/*.dll

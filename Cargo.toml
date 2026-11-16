@@ -1,0 +1,21 @@
+[package]
+name = "hf-tuning"
+version = "0.4.0"
+edition = "2021"
+description = "HighFleet (Steam 1.163): configurable engine overheat thresholds and rocket acceleration/burn time, globally and per engine m_oid / ammo item."
+
+[lib]
+name = "hf_tuning"
+crate-type = ["cdylib"]
+
+[dependencies]
+highfleet-mod-api = { git = "https://github.com/logdot/Highfleet-Modloader.git", tag = "v4.0.0" }
+log = "0.4.28"
+patchy = { package = "patchy-rs", git = "https://github.com/logdot/patchy-rs.git", tag = "v0.1.0" }
+serde = { version = "1.0.221", features = ["derive"] }
+serde_json = "1.0.144"
+windows-sys = { version = "0.61", features = [
+    "Win32_System_LibraryLoader",
+    "Win32_System_Memory",
+] }
+

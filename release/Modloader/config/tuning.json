@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "verbose_logging": true,
+  "engine_overheat_threshold": 500.0,
+  "engine_overheat_by_oid": {},
+  "rocket_acceleration": 500.0,
+  "rocket_acceleration_by_ammo": {},
+  "rocket_burn_seconds": 1.5,
+  "rocket_burn_seconds_by_ammo": {}
+}
